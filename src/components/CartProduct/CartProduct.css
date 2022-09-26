@@ -1,0 +1,22 @@
+.cart-product {
+    display: flex;
+    align-items: center;
+    margin: 20px 0;
+    border: 1px solid salmon;
+    padding: 5px;
+}
+
+.cart-product img {
+    flex: 1;
+    width: 100%;
+    padding: 0 10px 0 0;
+}
+
+.cart-product .cart-product-info {
+    flex: 8;
+}
+
+.cart-product-info p,
+.cart-product-info h4 {
+    margin: 0;
+}

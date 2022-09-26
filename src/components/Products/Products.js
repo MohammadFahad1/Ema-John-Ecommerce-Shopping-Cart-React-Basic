@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import CartProduct from '../CartProduct/CartProduct';
 import Product from '../Product/Product';
 import './Products.css';
 
@@ -13,9 +14,17 @@ const Products = () => {
             .then(data => setProducts(data))
     }, []);
 
+    const checkDuplicates = data => {
+        const getIndex = cart.indexOf(data);
+        return getIndex;
+    }
+
     const addToCart = product => {
-        const newCart = [...cart, product];
-        setCart(newCart);
+        const checkDuplicate = checkDuplicates(product);
+        if (checkDuplicate < 0) {
+            const newCart = [...cart, product];
+            setCart(newCart);
+        }
     }
 
     return (
@@ -30,6 +39,10 @@ const Products = () => {
             </div>
             <div className="cart">
                 <h1>Cart: {cart.length}</h1>
+                {
+                    // cart.map((prod, index) => <li key={index}><img src={prod.img} alt="" style={{ maxWidth: "30px" }} />{prod.name}</li>)
+                    cart.map((prod) => <CartProduct product={prod} key={prod.id}></CartProduct>)
+                }
             </div>
         </div>
     );
