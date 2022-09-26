@@ -30,9 +30,6 @@ const Products = () => {
             </div>
             <div className="cart">
                 <h1>Cart: {cart.length}</h1>
-                <div className="products-on-cart">
-                    {console.log(cart)}
-                </div>
             </div>
         </div>
     );
